@@ -1,1 +1,61 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grey Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="calculator-card">
+
+        <h1>🧮 Calculator</h1>
+        <p class="subtitle">Simple Flask Calculator</p>
+
+        <form method="POST">
+
+            <input
+                type="number"
+                step="any"
+                name="num1"
+                placeholder="Enter First Number"
+                required
+            >
+
+            <input
+                type="number"
+                step="any"
+                name="num2"
+                placeholder="Enter Second Number"
+                required
+            >
+
+            <select name="operation">
+                <option value="+">Addition (+)</option>
+                <option value="-">Subtraction (-)</option>
+                <option value="*">Multiplication (*)</option>
+                <option value="/">Division (/)</option>
+            </select>
+
+            <button type="submit">
+                Calculate
+            </button>
+
+        </form>
+
+        {% if result != "" %}
+        <div class="result-box">
+            <h3>Result</h3>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
